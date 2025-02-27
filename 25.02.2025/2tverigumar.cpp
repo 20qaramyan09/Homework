@@ -3,11 +3,11 @@
 void sum(){
 	int arajin = 0;
 	int erkrord = 0;
-	std::cout<<"1-ին թիւ";'\n';
+	std::cout<<"arajin";'\n';
 	std::cin>>arajin;
-	std::cout<<"2 թիւ";'\n';
+	std::cout<<"erkrord";'\n';
 	std::cin>>erkrord;
-	std::cout<<"պատասխան"<<arajin + erkrord;'\n';
+	std::cout<<"patasxan"<<arajin + erkrord;'\n';
 }
 int main(){
 	sum();

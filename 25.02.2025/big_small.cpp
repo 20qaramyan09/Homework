@@ -2,9 +2,9 @@
 void big_small(){
 	int a = 0;
 	int b = 0;
-	std::cout<<"1-ին թիւ";'\n';
+	std::cout<<"arajin tiv@";'\n';
 	std::cin>>a;
-	std::cout<<"2 թիւ";'\n';
+	std::cout<<"erkrord tiv@";'\n';
 	std::cin>>b;
 	if(a > b){
 		std::cout<<a;'\n';
