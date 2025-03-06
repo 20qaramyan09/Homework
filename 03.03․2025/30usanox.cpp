@@ -6,11 +6,13 @@ void inputGrades(int grades[], int size) {
     for (int i = 0; i < size; ++i) {
         std::cout << "Ուսանող " << i + 1 << ": ";
         std::cin >> grades[i];
-        
+
+        while (grades[i] < 0 || grades[i] > 100) {
+            std::cout << "Խնդրում ենք մուտքագրել գնահատական 0-100 միջակայքում: ";
+            std::cin >> grades[i];
         }
     }
-
-
+}
 
 void displayGrades(const int grades[], int size) {
     std::cout << "Ուսանողների գնահատականները՝ " << std::endl;
@@ -19,7 +21,6 @@ void displayGrades(const int grades[], int size) {
     }
 }
 
-
 double calculateAverage(const int grades[], int size) {
     int sum = 0;
     for (int i = 0; i < size; ++i) {
@@ -27,7 +28,6 @@ double calculateAverage(const int grades[], int size) {
     }
     return static_cast<double>(sum) / size;
 }
-
 
 int findHighestGrade(const int grades[], int size) {
     int highest = grades[0];
@@ -38,7 +38,6 @@ int findHighestGrade(const int grades[], int size) {
     }
     return highest;
 }
-
 
 int findLowestGrade(const int grades[], int size) {
     int lowest = grades[0];
@@ -51,11 +50,19 @@ int findLowestGrade(const int grades[], int size) {
 }
 
 void sortGrades(int grades[], int size) {
-   
+    for (int i = 0; i < size - 1; ++i) {
+        for (int j = 0; j < size - i - 1; ++j) {
+            if (grades[j] > grades[j + 1]) {
+                int temp = grades[j];
+                grades[j] = grades[j + 1];
+                grades[j + 1] = temp;
+            }
+        }
+    }
 }
 
 int main() {
-    const int SIZE = 30;
+    const int SIZE = 5;
     int grades[SIZE];
 
     inputGrades(grades, SIZE);
@@ -73,6 +80,8 @@ int main() {
 
     sortGrades(grades, SIZE);
     std::cout << "Դասավորված գնահատականները (աճման կարգով)՝ " << std::endl;
+    displayGrades(grades, SIZE);
+    std::cout << "Դասավորված գնահատականները (նվազման կարգով)՝ " << std::endl;
     displayGrades(grades, SIZE);
 
     return 0;
