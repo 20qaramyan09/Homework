@@ -1,6 +1,5 @@
 #include <iostream>
 
-
 void inputGrades(int grades[], int size) {
     std::cout << "Մուտքագրեք " << size << " ուսանողների գնահատականները (0-100 միջակայքում)։" << std::endl;
     for (int i = 0; i < size; ++i) {
@@ -61,6 +60,14 @@ void sortGrades(int grades[], int size) {
     }
 }
 
+void reverseArray(int grades[], int size) {
+    for (int i = 0; i < size / 2; ++i) {
+        int temp = grades[i];
+        grades[i] = grades[size - i - 1];
+        grades[size - i - 1] = temp;
+    }
+}
+
 int main() {
     const int SIZE = 5;
     int grades[SIZE];
@@ -81,6 +88,8 @@ int main() {
     sortGrades(grades, SIZE);
     std::cout << "Դասավորված գնահատականները (աճման կարգով)՝ " << std::endl;
     displayGrades(grades, SIZE);
+
+    reverseArray(grades, SIZE);
     std::cout << "Դասավորված գնահատականները (նվազման կարգով)՝ " << std::endl;
     displayGrades(grades, SIZE);
 
